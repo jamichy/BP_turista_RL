@@ -1,9 +1,28 @@
 # BP_turista_RL
 ## Introduction
-This repository contains code for a bachelor thesis on blaba. For this bachelor thesis a sample problem is designed. It is accompanied by The code is divided into folders, where each folder contains separately functional code to illustrate different RL algorithms for example Monte Carlo, Q-learning, Double Q-learning, Sarsa, DQN. 
+This repository contains the code for a bachelor thesis on Automatic stock trading based on fundamental factors and reinforcement learning. For this bachelor thesis a demonstration problem is designed. It is accompanied by the code, which is divided into folders. Each contains separately functional code to illustrate different RL algorithms for example Monte Carlo, Q-learning, Double Q-learning, Sarsa, DQN. 
+
+## Demonstration task
+
 
 ## Algorithms
+Lets describe used methods...
+### Monte Carlo
+
+
+#### Usage
+
+### Sarsa
+
+
 ### Q-learning
+
+
+### Double Q-learning
+
+
+
+### DQN
 ...
 ```python
 import foobar
