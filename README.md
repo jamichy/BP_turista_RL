@@ -34,9 +34,9 @@ The next thing to do for all algorithms except DDQN is to initialize the diction
 
 ```python
 Q = {}
-	for state in env.stateSpacePlus:
-		for action in env.possibleActions:
-			Q[state, action] = 0
+for state in env.stateSpacePlus:
+	for action in env.possibleActions:
+	Q[state, action] = 0
 ```
 
 Then at the beginning of each episode we call the reset method. Next, until we are in the final position, we choose an action, call env.step(action), which returns the next state, the reward, and a Boolean value for whether the agent is in the final position. After each interaction of the agent with the environment, we adjust the values of the qualitative function. 
@@ -44,28 +44,29 @@ Then at the beginning of each episode we call the reset method. Next, until we a
 ### Monte Carlo
 In Monte Carlo algorithm we change the values of the qualitative function after the end of the episode in the folowing form.
 ```python
+
 for i in range(n_episodes):
-		done  = False
-		score = 0
-		states_actions = []
-		rewards = []
-		observation = env.reset()
-		while not done:
-			rand = np.random.random()
-			if rand < epsilon:
-				action = random.choice(env.possibleActions)
-			else:
-				action = maxAction(Q, observation)
-			states_actions.append((observation, action))
-			observation_, reward, done = env.step(action)
-			rewards.append(reward)
-			score += reward
-			observation = observation_
-		G = 0
-		while len(rewards)>0:
-			G = rewards.pop(-1) + gamma*G
-			state_action = states_actions.pop(-1)
-			Q[state_action] = Q[state_action] +  alpha*(G-Q[state_action])
+	done  = False
+	score = 0
+	states_actions = []
+	rewards = []
+	observation = env.reset()
+	while not done:
+		rand = np.random.random()
+		if rand < epsilon:
+			action = random.choice(env.possibleActions)
+		else:
+			action = maxAction(Q, observation)
+		states_actions.append((observation, action))
+		observation_, reward, done = env.step(action)
+		rewards.append(reward)
+		score += reward
+		observation = observation_
+	G = 0
+	while len(rewards)>0:
+		G = rewards.pop(-1) + gamma*G
+		state_action = states_actions.pop(-1)
+		Q[state_action] = Q[state_action] +  alpha*(G-Q[state_action])
 ```
 
 
